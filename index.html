@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>XML Edit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class='container'>
+      <h1>XML Editor Test Bed</h1>
+      <div class='span12' id='index'>
+         Loading...
+      </div>
+    </div>
+    <script type="text/x-mustache-template" id="parsed-output-template">
+      <h3>{{ name }}</h3>
+      <p>{{ value }}</p>
+    </script>
+     <script type="text/x-mustache-template" id="parsed-out-tokens-template">
+      <div id='output'></div>
+    </script>
+    <script type="text/x-mustache-template" id="form-template">
+      <legend>Enter XML</legend>
+      <fieldset>
+        <div class='control-group'>
+          <label class='control-label' for='name'>xml</label>
+          <div class='controls'>
+            <textarea cols='60' rows='15' id='xml'/>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Parse XML</button>
+        </div>
+      </fieldset>
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/mustache.js"></script>
+    <script src="js/backbone-localstorage.js"></script>
+    <script src="js/xml-edit.js"></script>
+    <script>$(function() { XMLEdit.boot($('#index')); });</script>
+  </body>
+</html>
+
