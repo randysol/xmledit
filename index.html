@@ -12,9 +12,9 @@
     <![endif]-->
   </head>
   <body>
-    <div class='container'>
+    <div class="container">
       <h1>XML Editor Test Bed</h1>
-      <div class='span12' id='index'>
+      <div class="span12" id="index">
          Loading...
       </div>
     </div>
@@ -23,15 +23,15 @@
       <p>{{ value }}</p>
     </script>
      <script type="text/x-mustache-template" id="parsed-out-tokens-template">
-      <div id='output'></div>
+      <div id="output"></div>
     </script>
-    <script type="text/x-mustache-template" id="form-template">
+    <script type="text/x-mustache-template" id="xml-in-template">
       <legend>Enter XML</legend>
       <fieldset>
-        <div class='control-group'>
-          <label class='control-label' for='name'>xml</label>
-          <div class='controls'>
-            <textarea cols='60' rows='15' id='xml'/>
+        <div class="control-group">
+          <label class="control-label" for="xml">XML</label>
+          <div class="controls">
+            <textarea cols="60" rows="15" id="xml"/>
           </div>
         </div>
 
@@ -47,7 +47,7 @@
     <script src="js/mustache.js"></script>
     <script src="js/backbone-localstorage.js"></script>
     <script src="js/xml-edit.js"></script>
-    <script>$(function() { XMLEdit.boot($('#index')); });</script>
+    <script>$(function() { XMLEdit.boot($("#index")); });</script>
   </body>
 </html>
 

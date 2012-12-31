@@ -58,7 +58,7 @@
   XMLEdit.Index.Form = Backbone.View.extend({
     tagName: 'form',
     className: 'form-horizontal',
-    template: template('form'),
+    template: template('xml-in'),
     events: {
       'submit': 'parse'
     },
