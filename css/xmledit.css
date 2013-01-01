@@ -1,0 +1,47 @@
+#content {
+    margin-left: 10px;
+}
+#content1 {
+    float: left;
+    width: 350px;
+}
+#content2 {
+    float: left;
+    width: 250px;
+}
+#content3 {
+    float: left;
+    width: 350px;
+    margin-left: 20px;
+}
+#content2 form,
+#content3 form {
+    height: 320px;
+}
+form {
+    margin-bottom: 0;
+}
+textarea, table {
+    margin-bottom: 4px;
+}
+textarea {
+    display: block;
+    width: 320px;
+}
+label, h2 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    line-height: inherit
+}
+h2 {
+    margin-top: 15px;
+}
+#parsed-out-object,
+#parsed-out-tokens,
+#inspector-out-object {
+    min-height: 200px;
+    border: 1px solid gray;
+}
+
+

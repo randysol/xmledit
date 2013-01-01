@@ -1,44 +1,76 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>XML Edit</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="container">
-      <h1>XML Editor Test Bed</h1>
-      <div class="span12" id="index">
-         Loading...
-      </div>
-    </div>
-    <script type="text/x-mustache-template" id="parsed-output-template">
-      <h3>{{ name }}</h3>
-      <p>{{ value }}</p>
-    </script>
-     <script type="text/x-mustache-template" id="parsed-out-tokens-template">
-      <div id="output"></div>
-    </script>
-    <script type="text/x-mustache-template" id="xml-in-template">
-      <legend>Enter XML</legend>
-      <fieldset>
-        <div class="control-group">
-          <label class="control-label" for="xml">XML</label>
-          <div class="controls">
-            <textarea cols="60" rows="15" id="xml"/>
-          </div>
-        </div>
+    <head>
+        <meta charset="utf-8">
+        <title>XML Edit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/xmledit.css" rel="stylesheet">
 
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Parse XML</button>
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="content">
+            <h1>XML Editor Test Bed</h1>
+            <div id="index">
+                <span id="loading">Loading...</span>
+                <div id="content1"></div>
+                <div id="content2"></div>
+                <div id="content3"></div>
+            </div>
         </div>
-      </fieldset>
+    </body>
+    <script type="text/x-mustache-template" id="xml-in-template">
+        <fieldset>
+            <label for="xml-in">XML</label>
+            <textarea id="xml-in" rows="15"/>
+            <button type="submit">Parse XML</button>
+        </fieldset>
+    </script>
+    <script type="text/x-mustache-template" id="inspector-template">
+        <fieldset>
+            <label for="inspector">Inspector</label>
+            <table id="inspector">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Value</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <button type="submit">Save</button>
+        </fieldset>
+    </script>
+    <script type="text/x-mustache-template" id="parsed-out-object-template">
+        <h2>Parsed Output Object</h2>
+        <div id="parsed-out-object">
+        </div>
+    </script>
+    <script type="text/x-mustache-template" id="parsed-out-tokens-template">
+        <h2>Parsed Output Tokens</h2>
+        <div id="parsed-out-tokens">
+            <h3>{{ name }}</h3>
+            <p>{{ value }}</p>
+        </div>
+    </script>
+    <script type="text/x-mustache-template" id="inspector-out-xml-template">
+        <fieldset>
+            <label for="inspector-out-xml">Inspector Output XML</label>
+            <textarea id="inspector-out-xml" rows="15"/>
+            <button type="submit">Copy XML</button>
+        </fieldset>
+    </script>
+    <script type="text/x-mustache-template" id="inspector-out-object-template">
+        <h2>Inspector Output Object</h2>
+        <div id="inspector-out-object">
+        </div>
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -47,7 +79,8 @@
     <script src="js/mustache.js"></script>
     <script src="js/backbone-localstorage.js"></script>
     <script src="js/test-xmledit.js"></script>
-    <script>$(function() { XMLEdit.boot($("#index")); });</script>
-  </body>
+    <script>
+        XMLEdit.boot();
+    </script>
 </html>
 
