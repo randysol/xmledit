@@ -7,7 +7,7 @@
 }
 #content2 {
     float: left;
-    width: 250px;
+    width: 650px;
 }
 #content3 {
     float: left;
@@ -16,7 +16,7 @@
 }
 #content2 form,
 #content3 form {
-    height: 320px;
+    height: 380px;
 }
 form {
     margin-bottom: 0;
@@ -42,6 +42,30 @@ h2 {
 #inspector-out-object {
     min-height: 200px;
     border: 1px solid gray;
+    overflow: auto;
 }
+table {
+    border: 1px solid black;
+
+}
+.heading {
+    background-color: silver;
+}
+td {
+    border: 1px dashed silver
+}
+
+td.key {
+    padding-left: 25px;
+    color: goldenrod;
+}
+td.attributes {
+}
+thead {
+    background-color: silver;
+}
+td.section {
+
+
 
 

@@ -14,6 +14,39 @@
 
     XMLEdit.Index = Backbone.View.extend({
         el: '#index',
+        testObject: {
+            version: "",
+            rootNode: {
+                attributes: [
+                    {key: "async", value: "false", type: "", readonly: "false", constraints: []},
+                    {key: "continueOnError", value: "false"},
+                    {key: "enabled", value: "true"},
+                    {key: "name", value: "Quota-11076350647579356"}
+                ],
+                cdata: {key: "Quota", value: ""},
+                children: [
+                    {
+                        attributes: [],
+                        cdata: {key: "DisplayName", value: "Quota Policy"},
+                        children: {}
+                    },
+                    {
+                        attributes: [
+                            {key: "count", value: "2000"}
+                        ],
+                        cdata: {key: "Allow", value: ""},
+                        children: {}
+                    },
+                    {
+                        attributes: [
+                            {key: "ref", value: "request.header.quota_count"}
+                        ],
+                        cdata: {key: "Interval", value: 1},
+                        children: {}
+                    }
+                ]
+            }
+        },
         initialize: function() {
             this.xml = new XMLEdit.XML();
             this.xml.on('all', this.renderParsedOut, this);
@@ -31,8 +64,6 @@
             this.inspectorOutObject = new XMLEdit.Index.InspectorOutObject({model: this.xml});
 
             this.inspector.on('inspector:save', this.renderInspectorOut, this);
-
-
         },
         render: function() {
             this.$("#loading").hide();
@@ -43,6 +74,7 @@
             var $content2 = this.$("#content2");
             $content2.append(this.inspector.render().el);
             $content2.append(this.parsedOutObject.render().el);
+            this.$("#parsed-out-object").html(JSON.stringify(this.testObject));
             $content2.append(this.parsedOutTokens.render().el);
         },
         renderInspectorOut: function() {

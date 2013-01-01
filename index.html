@@ -37,11 +37,52 @@
             <table id="inspector">
                 <thead>
                     <tr>
-                        <td>Name</td>
-                        <td>Value</td>
+                        <td colspan="2">Quota</td>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- tr>
+                        <td colspan="2" class="attributes">Attributes</td>
+                    </tr-->
+                    <tr>
+                        <td class="key">Quota async</td><td>false</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Quota continue</td><td>false</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Quota enabled</td><td>true</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Quota name</td><td>Quota-11076350647579356</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="section">Quota Children</td>
+                    </tr>
+                    <tr>
+                        <td class="key">DisplayName</td><td>Quota Policy</td>
+                    </tr>
+                    <!-- tr>
+                        <td colspan="2" class="attributes">Allow Attributes</td>
+                    </tr -->
+                    <tr>
+                        <td class="key">Allow count</td><td>2000</td>
+                    </tr>
+                    <!-- tr>
+                        <td colspan="2" class="attributes">Interval Attributes</td>
+                    </tr -->
+                    <tr>
+                        <td class="key">Interval ref</td><td>request.header.quota_count</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Interval</td><td>1</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Distributed</td><td>false</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Synchronous</td><td>true</td>
+                    </tr>
 
                 </tbody>
             </table>
@@ -79,6 +120,7 @@
     <script src="js/mustache.js"></script>
     <script src="js/backbone-localstorage.js"></script>
     <script src="js/test-xmledit.js"></script>
+    <script src="js/inspector.js"></script>
     <script>
         XMLEdit.boot();
     </script>
