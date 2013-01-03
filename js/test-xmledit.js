@@ -9,7 +9,8 @@
     XMLEdit.XML = Backbone.Model.extend({
         localStorage: new Store("xmlItem"),
         name: "n",
-        value: "v"
+        value: "v",
+        parsedRoot: ""
     });
 
     XMLEdit.Index = Backbone.View.extend({
@@ -49,7 +50,7 @@
         },
         initialize: function() {
             this.xml = new XMLEdit.XML();
-            this.xml.on('all', this.renderParsedOut, this);
+            this.xml.on('change:parsedRoot', this.renderParsedOut, this);
             //this.xml.on('all', function() {
             //  console.log("On All", arguments, this);
             //});
@@ -74,7 +75,7 @@
             var $content2 = this.$("#content2");
             $content2.append(this.inspector.render().el);
             $content2.append(this.parsedOutObject.render().el);
-            this.$("#parsed-out-object").html(JSON.stringify(this.testObject));
+            this.$("#parsed-out-object").html(JSON.stringify(this.xml.get("parsedRoot")));
             $content2.append(this.parsedOutTokens.render().el);
         },
         renderInspectorOut: function() {
@@ -103,24 +104,13 @@
                 name: 'xml',
                 value: this.$('#xml-in').val()
             });
+            var xmlParser = new XMLParser();
+            xmlParser.init(this.model.get("value"));
+            console.log("randuy", this.model.get("value"));
+            this.model.set({ parsedRoot: xmlParser.parse()});
         }
     });
 
-    XMLEdit.Index.Inspector = Backbone.View.extend({
-        tagName: 'form',
-        template: template('inspector'),
-        events: {
-            'submit': 'save'
-        },
-        render: function() {
-            this.$el.html(this.template(this));
-            return this;
-        },
-        save: function(event) {
-            event.preventDefault();
-            this.trigger("inspector:save");
-        }
-    });
 
     XMLEdit.Index.ParsedOutObject = Backbone.View.extend({
         template: template('parsed-out-object'),

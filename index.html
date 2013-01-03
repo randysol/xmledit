@@ -27,7 +27,29 @@
     <script type="text/x-mustache-template" id="xml-in-template">
         <fieldset>
             <label for="xml-in">XML</label>
-            <textarea id="xml-in" rows="15"/>
+            <textarea id="xml-in" rows="15">
+                <XMLToJSON async="false" continueOnError="false" enabled="true" name="XML-to-JSON">
+                    <DisplayName>XML to JSON Policy</DisplayName>
+                    <FaultRules/>
+                    <Properties/>
+                    <Options>
+                        <RecognizeBoolean>false</RecognizeBoolean>
+                        <RecognizeNumber>false</RecognizeNumber>
+                        <RecognizeNull>false</RecognizeNull>
+                        <NullValue>NULL</NullValue>
+                        <NamespaceBlockName>#namespaces</NamespaceBlockName>
+                        <DefaultNamespaceNodeName>$default</DefaultNamespaceNodeName>
+                        <NamespaceSeparator>_</NamespaceSeparator>
+                        <TextAlwaysAsProperty>false</TextAlwaysAsProperty>
+                        <TextNodeName>#text</TextNodeName>
+                        <AttributeBlockName>#attrs</AttributeBlockName>
+                        <AttributePrefix>@</AttributePrefix>
+                        <OutputPrefix/>
+                        <OutputSuffix/>
+                    </Options>
+                    <Source>response</Source>
+                </XMLToJSON>
+            </textarea>
             <button type="submit">Parse XML</button>
         </fieldset>
     </script>
@@ -37,13 +59,11 @@
             <table id="inspector">
                 <thead>
                     <tr>
-                        <td colspan="2">Quota</td>
+                        <td colspan="2"></td>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- tr>
-                        <td colspan="2" class="attributes">Attributes</td>
-                    </tr-->
+                <!--
                     <tr>
                         <td class="key">Quota async</td><td>false</td>
                     </tr>
@@ -62,15 +82,11 @@
                     <tr>
                         <td class="key">DisplayName</td><td>Quota Policy</td>
                     </tr>
-                    <!-- tr>
-                        <td colspan="2" class="attributes">Allow Attributes</td>
-                    </tr -->
+
                     <tr>
                         <td class="key">Allow count</td><td>2000</td>
                     </tr>
-                    <!-- tr>
-                        <td colspan="2" class="attributes">Interval Attributes</td>
-                    </tr -->
+
                     <tr>
                         <td class="key">Interval ref</td><td>request.header.quota_count</td>
                     </tr>
@@ -83,6 +99,7 @@
                     <tr>
                         <td class="key">Synchronous</td><td>true</td>
                     </tr>
+                -->
 
                 </tbody>
             </table>
@@ -121,6 +138,7 @@
     <script src="js/backbone-localstorage.js"></script>
     <script src="js/test-xmledit.js"></script>
     <script src="js/inspector.js"></script>
+    <script src="js/xmledit.js"></script>
     <script>
         XMLEdit.boot();
     </script>
