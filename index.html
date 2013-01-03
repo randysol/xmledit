@@ -27,28 +27,28 @@
     <script type="text/x-mustache-template" id="xml-in-template">
         <fieldset>
             <label for="xml-in">XML</label>
-            <textarea id="xml-in" rows="15">
-                <XMLToJSON async="false" continueOnError="false" enabled="true" name="XML-to-JSON">
-                    <DisplayName>XML to JSON Policy</DisplayName>
-                    <FaultRules/>
-                    <Properties/>
-                    <Options>
-                        <RecognizeBoolean>false</RecognizeBoolean>
-                        <RecognizeNumber>false</RecognizeNumber>
-                        <RecognizeNull>false</RecognizeNull>
-                        <NullValue>NULL</NullValue>
-                        <NamespaceBlockName>#namespaces</NamespaceBlockName>
-                        <DefaultNamespaceNodeName>$default</DefaultNamespaceNodeName>
-                        <NamespaceSeparator>_</NamespaceSeparator>
-                        <TextAlwaysAsProperty>false</TextAlwaysAsProperty>
-                        <TextNodeName>#text</TextNodeName>
-                        <AttributeBlockName>#attrs</AttributeBlockName>
-                        <AttributePrefix>@</AttributePrefix>
-                        <OutputPrefix/>
-                        <OutputSuffix/>
-                    </Options>
-                    <Source>response</Source>
-                </XMLToJSON>
+            <textarea id="xml-in" rows="25">
+<XMLToJSON async="false" continueOnError="false" enabled="true" name="XML-to-JSON">
+    <DisplayName>XML to JSON Policy</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Options>
+        <RecognizeBoolean>false</RecognizeBoolean>
+        <RecognizeNumber>false</RecognizeNumber>
+        <RecognizeNull>false</RecognizeNull>
+        <NullValue>NULL</NullValue>
+        <NamespaceBlockName>#namespaces</NamespaceBlockName>
+        <DefaultNamespaceNodeName>$default</DefaultNamespaceNodeName>
+        <NamespaceSeparator>_</NamespaceSeparator>
+        <TextAlwaysAsProperty>false</TextAlwaysAsProperty>
+        <TextNodeName>#text</TextNodeName>
+        <AttributeBlockName>#attrs</AttributeBlockName>
+        <AttributePrefix>@</AttributePrefix>
+        <OutputPrefix/>
+        <OutputSuffix/>
+    </Options>
+    <Source>response</Source>
+</XMLToJSON>
             </textarea>
             <button type="submit">Parse XML</button>
         </fieldset>
