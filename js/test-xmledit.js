@@ -59,10 +59,7 @@
 
             this.xmlIn = new XMLEdit.Index.XmlIn({model: this.xml});
             this.inspector = new XMLEdit.Index.Inspector({model: this.xml});
-            this.parsedOutObject = new XMLEdit.Index.ParsedOutObject({model: this.xml});
-            this.parsedOutTokens = new XMLEdit.Index.ParsedOutTokens({model: this.xml});
             this.inspectorOutXml = new XMLEdit.Index.InspectorOutXml({model: this.xml});
-            this.inspectorOutObject = new XMLEdit.Index.InspectorOutObject({model: this.xml});
 
             this.inspector.on('inspector:save', this.renderInspectorOut, this);
         },
@@ -74,9 +71,6 @@
         renderParsedOut: function() {
             var $content2 = this.$("#content2");
             $content2.append(this.inspector.render().el);
-            $content2.append(this.parsedOutObject.render().el);
-            this.$("#parsed-out-object").html(JSON.stringify(this.xml.get("parsedRoot")));
-            $content2.append(this.parsedOutTokens.render().el);
         },
         renderInspectorOut: function() {
             var $content3 = this.$("#content3");
@@ -111,24 +105,6 @@
         }
     });
 
-
-    XMLEdit.Index.ParsedOutObject = Backbone.View.extend({
-        template: template('parsed-out-object'),
-        render: function() {
-            this.$el.html(this.template(this));
-            return this;
-        }
-    });
-
-    XMLEdit.Index.ParsedOutTokens = Backbone.View.extend({
-        template: template('parsed-out-tokens'),
-        render: function() {
-            this.$el.html(this.template(this));
-            return this;
-        },
-        name:  function() { return this.model.get('name'); },
-        value: function() { return this.model.get('value'); }
-    });
 
     XMLEdit.Index.InspectorOutXml = Backbone.View.extend({
         tagName: 'form',
