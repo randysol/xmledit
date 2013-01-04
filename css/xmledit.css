@@ -35,8 +35,6 @@ label, h2 {
 h2 {
     margin-top: 15px;
 }
-#parsed-out-object,
-#parsed-out-tokens,
 #inspector-out-object {
     border: 1px solid gray;
     overflow: auto;
@@ -52,6 +50,7 @@ tbody .heading {
     background-color: #f0f0f0;
     font-size:  11px;
     color: #999;
+    color: goldenrod;
 }
 
 td {
@@ -64,11 +63,11 @@ td.key {
     color: goldenrod;
 }
 td.value input, td.value select {
-    width: 100%;
-    height: 100%;
-    border: none;
     margin: 0;
     padding: 0;
+}
+td.value select {
+    width: auto;
 }
 td.value textarea:focus, td.value input:focus{
     outline: none;
