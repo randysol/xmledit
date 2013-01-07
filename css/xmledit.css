@@ -66,6 +66,9 @@ td.value input, td.value select {
     margin: 0;
     padding: 0;
 }
+td.value input[type="number"] {
+    width: auto;
+}
 td.value select {
     width: auto;
 }
