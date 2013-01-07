@@ -10,7 +10,8 @@
         localStorage: new Store("xmlItem"),
         name: "n",
         value: "v",
-        parsedRoot: ""
+        parsedRoot: "",
+        source: ""
     });
 
     XMLEdit.Index = Backbone.View.extend({
@@ -52,9 +53,17 @@
         events: {
             'submit': 'parse'
         },
+        initialize: function() {
+        },
         render: function() {
+            console.log("hello", this.model);
+            this.model.on('change:source', this.renderSource, this);
+
             this.$el.html(this.template(this));
             return this;
+        },
+        renderSource: function() {
+            $("#xml-in").val(this.model.get("source"));
         },
         parse: function(event) {
             //console.log(this.el);
@@ -129,6 +138,10 @@
                 }
             });
             this.model.set({ parsedRoot: xmlParser.parse()});
+            xmlParser.addEventNotificationListener(function(event) {
+                this.model.set({source: event.xml});
+                console.log("Notified", event, this);
+            }, this);
         }
     });
 
